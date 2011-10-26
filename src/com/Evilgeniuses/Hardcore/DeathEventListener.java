@@ -23,7 +23,13 @@ public class DeathEventListener extends EntityListener {
 				
 		_plugin.getDeadPlayerList().addPlayer(player,de.getDeathMessage());
 		
-		
+		if (_plugin.getHardcoreConfiguration().finalFarewell) {
+			doFinalFarewellMessage(player);
+		}
+	}
+	
+	private void doFinalFarewellMessage(Player player) {
+		player.sendMessage("You have died. You have been granted " + _plugin.getHardcoreConfiguration().finalFarewellSeconds + " seconds to say your final farewell.");
 	}
 	
 }

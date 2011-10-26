@@ -65,6 +65,15 @@ public class DeadPlayerList {
 			//better way to compare?
 			if (playerName.compareToIgnoreCase(_deadPlayers.get(i).getPlayerName())==0)
 			{
+				//if finalFarewell is enabled, check if they can stay for now
+				if (_plugin.getHardcoreConfiguration().finalFarewell)
+				{
+					//if the date when their farewell ends after the current time, they can still be here
+					if (getFarewellDate(_deadPlayers.get(i)).after(new Date()))
+						continue; //continue on to the next player in the list
+					//otherwise fall into the other checks below
+				}
+				
 				//they are on the list, but are they still dead?
 				//if the live date is before now, they are ready to come back
 				if (getLiveDate(_deadPlayers.get(i)).before(new Date())) 
@@ -103,6 +112,13 @@ public class DeadPlayerList {
 		Calendar c = Calendar.getInstance();
 		c.setTime(player.getDeathDate());
 		c.add(Calendar.SECOND, _plugin.getHardcoreConfiguration().deathSeconds);
+		return c.getTime();
+	}
+	
+	private Date getFarewellDate(DeadPlayer player) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(player.getDeathDate());
+		c.add(Calendar.SECOND, _plugin.getHardcoreConfiguration().finalFarewellSeconds);
 		return c.getTime();
 	}
 	
