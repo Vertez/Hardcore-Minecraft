@@ -69,8 +69,10 @@ public class DeadPlayerList {
 				if (_plugin.getHardcoreConfiguration().finalFarewell)
 				{
 					//if the date when their farewell ends after the current time, they can still be here
-					if (getFarewellDate(_deadPlayers.get(i)).after(new Date()))
+					if (getFarewellDate(_deadPlayers.get(i)).after(new Date())) {
+						_plugin.log(playerName + " is dead, but during final farewell");
 						continue; //continue on to the next player in the list
+					}
 					//otherwise fall into the other checks below
 				}
 				
