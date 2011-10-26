@@ -1,0 +1,18 @@
+This is a new implementation of SMP Hardcore. If you die, you are banned.
+
+Here are a few features:
+
+Configurable ban time (default is one week)
+Commands for admins to ban,unban and get info on dead players
+Players are told what date and time they will be allowed back when they die and when they try to log back early.
+The plugin logs every death along with level, exp, location and death message in csv format for easy exporting
+Does not have the "dead players hog a login spot" issue.
+Fully open source and supported on GitHub
+
+Future features:
+Final Farewell: Admins can choose to allow players to live for a short time and chat and say goodbye
+Purgatory: Admins can choose an alternate respawn point for fallen players.
+Sound and Fury: A non damaging lightning and thunderclap should go off each time a player dies. Because it would be cool.
+Estate Sale: When the plugin is run along side security and property management plugins such as Residence, property will become free after a player dies. Optionally, the admins can turn on a setting that will announce a dead players home location to the entire server. Will the players rush in to loot items? Will there only be traps waiting? Will it be an ambush? Fun times.
+HTML export: Rather than only csv exporting for the death log, maybe something more useful to post to a server home page.
+Death maps: Easy tieins to mapping software that would allow for overlay of death logs
