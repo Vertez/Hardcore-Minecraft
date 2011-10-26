@@ -21,7 +21,7 @@ public class HardcoreConfiguration {
 		this.deathSeconds=config.getInt("deathSeconds", DEFAULT_DEATH_DURATION_SECONDS);
 		this.reaperCheckSeconds=config.getInt("reaperCheckSeconds", DEFAULT_REAPER_CHECK_SECONDS);
 		this.finalFarewell=config.getBoolean("finalFarewell", DEFAULT_FINAL_FAREWELL);
-		this.finalFarewellSeconds=config.getInt("finalFarewell", DEFAULT_FINAL_FAREWELL_SECONDS);
+		this.finalFarewellSeconds=config.getInt("finalFarewellSeconds", DEFAULT_FINAL_FAREWELL_SECONDS);
 		
 		config.save();	
 	}

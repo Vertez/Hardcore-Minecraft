@@ -56,7 +56,7 @@ public class DeadPlayerList {
 		save();
 	}
 	
-	public boolean isPlayerDead(String playerName) {
+	public boolean isPlayerDead(String playerName, boolean checkForFarewell) {
 		boolean isFound=false;
 				
 		for (int i = 0; i < _deadPlayers.size(); i++) 
@@ -66,11 +66,10 @@ public class DeadPlayerList {
 			if (playerName.compareToIgnoreCase(_deadPlayers.get(i).getPlayerName())==0)
 			{
 				//if finalFarewell is enabled, check if they can stay for now
-				if (_plugin.getHardcoreConfiguration().finalFarewell)
+				if (_plugin.getHardcoreConfiguration().finalFarewell && checkForFarewell)
 				{
 					//if the date when their farewell ends after the current time, they can still be here
 					if (getFarewellDate(_deadPlayers.get(i)).after(new Date())) {
-						_plugin.log(playerName + " is dead, but during final farewell");
 						continue; //continue on to the next player in the list
 					}
 					//otherwise fall into the other checks below
