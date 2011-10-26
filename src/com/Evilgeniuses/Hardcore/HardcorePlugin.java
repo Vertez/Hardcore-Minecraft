@@ -83,7 +83,7 @@ public class HardcorePlugin extends JavaPlugin {
 			Player player = onlinePlayers[i];
 			String playerName = player.getName();
 			
-			if (this.getDeadPlayerList().isPlayerDead(playerName))
+			if (this.getDeadPlayerList().isPlayerDead(playerName,true))
 			{
 				//if so, kick them
 				String livedate =  this.getDeadPlayerList().whenWillPlayerLive(playerName).toString();

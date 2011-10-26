@@ -1,5 +1,6 @@
 package com.Evilgeniuses.Hardcore;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityListener;
@@ -21,9 +22,19 @@ public class DeathEventListener extends EntityListener {
 		Player player = (Player)event.getEntity();
 		PlayerDeathEvent de = (PlayerDeathEvent)event;
 				
-		_plugin.getDeadPlayerList().addPlayer(player,de.getDeathMessage());
+		//don't add the player more than once to the list
+		if (!_plugin.getDeadPlayerList().isPlayerDead(player.getName(), false)) {
+			_plugin.getDeadPlayerList().addPlayer(player,de.getDeathMessage());
 		
-		
+			//they won't get another farewell message if they die during farewell
+			if (_plugin.getHardcoreConfiguration().finalFarewell) {
+				doFinalFarewellMessage(player);
+			}
+		}
+	}
+	
+	private void doFinalFarewellMessage(Player player) {
+		player.sendMessage(ChatColor.RED + "You have died. You have been granted " + _plugin.getHardcoreConfiguration().finalFarewellSeconds + " seconds to say your final farewell.");
 	}
 	
 }

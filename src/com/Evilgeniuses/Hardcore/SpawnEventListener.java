@@ -47,7 +47,8 @@ public class SpawnEventListener extends PlayerListener {
 		
 		_plugin.log(playerName + " is trying to log in.");
 		
-		if (_plugin.getDeadPlayerList().isPlayerDead(playerName))
+		//if you get disconnected during your farewell, you can still reconnect within the farewell counter
+		if (_plugin.getDeadPlayerList().isPlayerDead(playerName, true))
 		{
 			String livedate =  _plugin.getDeadPlayerList().whenWillPlayerLive(playerName).toString();
 			event.setKickMessage("You will be dead until " + livedate);

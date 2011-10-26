@@ -31,7 +31,7 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 			if (args[0].equalsIgnoreCase("res")) 
 				return runResCommand(sender,player,args);
 			else if (args[0].equalsIgnoreCase("slay"))
-				return runReapCommand(sender,player,args);
+				return runSlayCommand(sender,player,args);
 			else if (args[0].equalsIgnoreCase("info"))
 				return runInfoCommand(sender, player, args);
 			else 
@@ -42,7 +42,7 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 		return true;
 	}
 	
-		private boolean runReapCommand(CommandSender sender, Player player,
+		private boolean runSlayCommand(CommandSender sender, Player player,
 			String[] args) {
 		
 			//if it was run from the console or if they have permission
@@ -53,7 +53,7 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 					String playerName = args[1];
 					
 					//make sure they aren't dead first, that would be overkill, ha!
-					if (_plugin.getDeadPlayerList().isPlayerDead(playerName)) 
+					if (_plugin.getDeadPlayerList().isPlayerDead(playerName, false)) 
 					{
 						
 						//let them know
@@ -102,7 +102,7 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 					String playerName = args[1];
 					
 					//make sure they are dead first
-					if (_plugin.getDeadPlayerList().isPlayerDead(playerName)) 
+					if (_plugin.getDeadPlayerList().isPlayerDead(playerName, false)) 
 					{
 						//if they are, remove them from the list.
 						_plugin.getDeadPlayerList().removePlayer(playerName);
@@ -144,7 +144,7 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 					{
 						String playerName = args[1];
 						
-						if (_plugin.getDeadPlayerList().isPlayerDead(playerName)) 
+						if (_plugin.getDeadPlayerList().isPlayerDead(playerName, false)) 
 						{
 							sender.sendMessage(playerName + " is dead and will be allowed back on " + _plugin.getDeadPlayerList().whenWillPlayerLive(playerName));
 						} 
