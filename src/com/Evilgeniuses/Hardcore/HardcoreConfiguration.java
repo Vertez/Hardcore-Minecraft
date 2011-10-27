@@ -9,8 +9,8 @@ import org.bukkit.util.config.Configuration;
 public class HardcoreConfiguration {
 	
 	//one week
-	private int DEFAULT_DEATH_DURATION_SECONDS = 7 * 24 * 60 * 60;
-	private int DEFAULT_REAPER_CHECK_SECONDS = 10;
+	private int DEFAULT_DEATH_DURATION_SECONDS = 7 * 24 * 60 * 60; //one week
+	private int DEFAULT_REAPER_CHECK_SECONDS = 5;
 	private boolean DEFAULT_FINAL_FAREWELL = false;
 	private int DEFAULT_FINAL_FAREWELL_SECONDS = 60;
 	private boolean DEFAULT_THUNDER_LIGHTNING = true;
