@@ -109,11 +109,20 @@ public class DeadPlayerList {
 	}
 
 	private Date getLiveDate(DeadPlayer player) {
-		//wow java date math is a pain
-		Calendar c = Calendar.getInstance();
-		c.setTime(player.getDeathDate());
-		c.add(Calendar.SECOND, _plugin.getHardcoreConfiguration().deathSeconds);
-		return c.getTime();
+		if (_plugin.getHardcoreConfiguration().useResurrectionDay) {
+			//if they died before the start, they can come back after the start
+			if (player.getDeathDate().before(_plugin.getHardcoreConfiguration().resurrectionDayStart))
+				return _plugin.getHardcoreConfiguration().resurrectionDayStart;
+			//if they died after the start, they can come back at the end
+			else
+				return _plugin.getHardcoreConfiguration().resurrectionDayEnd;
+		} else {
+			//wow java date math is a pain
+			Calendar c = Calendar.getInstance();
+			c.setTime(player.getDeathDate());
+			c.add(Calendar.SECOND, _plugin.getHardcoreConfiguration().deathSeconds);
+			return c.getTime();
+		}
 	}
 	
 	private Date getFarewellDate(DeadPlayer player) {
