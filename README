@@ -8,6 +8,7 @@ Here are a few features:
 * Does not have the "dead players hog a login spot" issue.
 * Final Farewell: Admins can choose to allow players to live for a short time and chat and say goodbye
 * Sound and Fury: Admins can choose to allow a non damaging lightning and thunderclap will go off each time a player dies. Because it would be cool.
+* Resurrection Day: Instead of using duration based ban, the whole server can be given a single date for when they can come back. This is in the form of specifying the start and end of each period. for Savoie.
 * Fully open source and supported on GitHub
 
 Future features:
