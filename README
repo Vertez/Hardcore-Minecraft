@@ -1,18 +1,23 @@
 This is a new implementation of SMP Hardcore. If you die, you are banned.
 
 Here are a few features:
-
-Configurable ban time (default is one week)
-Commands for admins to ban,unban and get info on dead players
-Players are told what date and time they will be allowed back when they die and when they try to log back early.
-The plugin logs every death along with level, exp, location and death message in csv format for easy exporting
-Does not have the "dead players hog a login spot" issue.
-Fully open source and supported on GitHub
+* Configurable ban time (default is one week)
+* Commands for admins to ban,unban and get info on dead players (/hardcore)
+* Players are told what date and time they will be allowed back when they die and when they try to log back early.
+* The plugin logs every death along with level, exp, location and death message in csv format for easy exporting
+* Does not have the "dead players hog a login spot" issue.
+* Final Farewell: Admins can choose to allow players to live for a short time and chat and say goodbye
+* Sound and Fury: Admins can choose to allow a non damaging lightning and thunderclap will go off each time a player dies. Because it would be cool.
+* Fully open source and supported on GitHub
 
 Future features:
-Final Farewell: Admins can choose to allow players to live for a short time and chat and say goodbye
-Purgatory: Admins can choose an alternate respawn point for fallen players.
-Sound and Fury: A non damaging lightning and thunderclap should go off each time a player dies. Because it would be cool.
-Estate Sale: When the plugin is run along side security and property management plugins such as Residence, property will become free after a player dies. Optionally, the admins can turn on a setting that will announce a dead players home location to the entire server. Will the players rush in to loot items? Will there only be traps waiting? Will it be an ambush? Fun times.
-HTML export: Rather than only csv exporting for the death log, maybe something more useful to post to a server home page.
-Death maps: Easy tieins to mapping software that would allow for overlay of death logs
+* Dieing Words: Players can specify a message that will be shown to the players when they die. Admins can view what players have queued up just in case they want to moderate them. -Thanks Manadar24
+* Purgatory: Admins can choose an alternate respawn point for fallen players. 
+* World support: Allow hardcore mode to be enabled on a per-world basis. If you die in a non hardcore world, the game lets you respawn as normal. If you die in the hardcore world, you would still be banned.
+* World support for Purgatory: Allow the Purgatory zone to be in a seperate world.
+* Full permissions support, only ops can use the /hardcore command right now.
+* Estate Sale: When the plugin is run along side security and property management plugins such as Residence, property will become free after a player dies. Optionally, the admins can turn on a setting that will announce a dead players home location to the entire server. Will the players rush in to loot items? Will there only be traps waiting? Will it be an ambush? Fun times.
+* HTML export: Rather than only csv exporting for the death log, maybe something more useful to post to a server home page.
+* Death maps: Easy tieins to mapping software that would allow for overlay of death logs. 
+
+The jar is in the releases folder.
