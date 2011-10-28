@@ -36,6 +36,7 @@ public class DeathEventListener extends EntityListener {
 		
 		if (_plugin.getHardcoreConfiguration().doThunderAndLightningOnDeath)
 			doSoundAndFury(player.getLocation(),player.getWorld());
+				
 	}
 	
 	private void doFinalFarewellMessage(Player player) {
@@ -49,5 +50,7 @@ public class DeathEventListener extends EntityListener {
 		whatWorld.setThundering(true);
 
 	}
+	
+	
 	
 }

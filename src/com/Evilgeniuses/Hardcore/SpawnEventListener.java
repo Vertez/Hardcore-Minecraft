@@ -2,6 +2,7 @@ package com.Evilgeniuses.Hardcore;
 
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class SpawnEventListener extends PlayerListener {
 
@@ -41,6 +42,18 @@ public class SpawnEventListener extends PlayerListener {
 		}
 		
 	}*/
+	
+	public void onPlayerRespawn(PlayerRespawnEvent event) {
+		//this event is only hit if purgatory is enabled.
+		
+		String playerName = event.getPlayer().getName();
+		//check if they are on the dead list
+		if (_plugin.getDeadPlayerList().isPlayerDead(playerName, false))
+		{
+			event.setRespawnLocation(_plugin.getHardcoreConfiguration().purgatoryLocation);
+		}
+		
+	}
 	
 	public void onPlayerLogin(PlayerLoginEvent event) {
 		String playerName = event.getPlayer().getName();
