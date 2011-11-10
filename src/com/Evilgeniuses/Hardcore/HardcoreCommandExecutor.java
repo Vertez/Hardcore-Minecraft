@@ -34,8 +34,6 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 				return runSlayCommand(sender,player,args);
 			else if (args[0].equalsIgnoreCase("info"))
 				return runInfoCommand(sender, player, args);
-			else if (args[0].equalsIgnoreCase("setpurgatory"))
-				return runSetPurgatoryCommand(sender, player);
 			else 
 				return false;
 
@@ -44,18 +42,6 @@ public class HardcoreCommandExecutor implements CommandExecutor  {
 		return true;
 	}
 	
-		private boolean runSetPurgatoryCommand(CommandSender sender, Player player) {
-			if (player==null)  {
-				sender.sendMessage("You can only set purgatory's location in person");
-				return false;
-			}
-			
-			_plugin.getHardcoreConfiguration().setPurgatory(player.getLocation());
-			
-			sender.sendMessage("Purgatory location set to " + player.getLocation().toString());
-			return true;
-		}
-
 		private boolean runSlayCommand(CommandSender sender, Player player,
 			String[] args) {
 		

@@ -34,16 +34,13 @@ public class HardcorePlugin extends JavaPlugin {
 		DeathEventListener deathListener = new DeathEventListener(this);
 		SpawnEventListener spawnListener = new SpawnEventListener(this);
 		
-		_config = new HardcoreConfiguration(this);
-		_deadPlayerList = new DeadPlayerList(this);
-		
 		//hook on to death and login
 		pm.registerEvent(Event.Type.ENTITY_DEATH, deathListener, Event.Priority.Normal, this);
 		
 		pm.registerEvent(Event.Type.PLAYER_LOGIN, spawnListener, Event.Priority.Normal, this);
-		
-		if (_config.usePurgatory)
-			pm.registerEvent(Event.Type.PLAYER_RESPAWN, spawnListener, Event.Priority.Normal, this);
+				
+		_config = new HardcoreConfiguration(this);
+		_deadPlayerList = new DeadPlayerList(this);
 		
 		//hookup the /hardcore command
 		HardcoreCommandExecutor cmd=new HardcoreCommandExecutor(this);
