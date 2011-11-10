@@ -32,7 +32,7 @@ public class DeadPlayerList {
 		DeadLog dl = new DeadLog(_plugin);
 		dl.addDeadLog(playerName, new Date(), player.getLevel(), player.getTotalExperience(), player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), deathMessage);
 		
-		_plugin.log(playerName + " was added to the list of the dead.");
+		_plugin.log(playerName + " was added to the list of the dead. They will be dead until " + whenWillPlayerLive(playerName).toString() );
 	}
 	
 	public void removePlayer(String playerName) {
@@ -79,7 +79,10 @@ public class DeadPlayerList {
 				//if the live date is before now, they are ready to come back
 				if (getLiveDate(_deadPlayers.get(i)).before(new Date())) 
 				{
+					DeadPlayer p = _deadPlayers.get(i);
+					
 					//remove them from the list, thats ok because we are done iterating.
+					_plugin.log(playerName + " is ready to come back. They died on " + p.getDeathDate().toString()  + " and could come back any time after " + getLiveDate(p).toString() + ".");
 					removePlayer(playerName);
 					break;
 				} 

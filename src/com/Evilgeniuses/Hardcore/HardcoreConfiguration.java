@@ -33,7 +33,10 @@ public class HardcoreConfiguration {
 	public Boolean usePurgatory;
 	public Location purgatoryLocation;
 	
+	private HardcorePlugin _plugin;
+	
 	HardcoreConfiguration(HardcorePlugin plugin) {
+		_plugin=plugin;
 		Configuration config = plugin.getConfiguration();
 		
 		this.deathSeconds=config.getInt("deathSeconds", DEFAULT_DEATH_DURATION_SECONDS);
@@ -101,5 +104,16 @@ public class HardcoreConfiguration {
 		config.save();	
 	}
 	
+	
+	public void setPurgatory(Location location) {
+		Configuration config = _plugin.getConfiguration();
+		
+		config.setProperty("usePurgatory", true);
+		String locString = location.getBlockX() + "," + location.getBlockY() + "," + location.getBlockZ();
+		_plugin.log("Setting purgatory location to " + locString);
+		config.setProperty("rawPurgatoryLocation", locString);
+		
+		config.save();
+	}
 	
 }
