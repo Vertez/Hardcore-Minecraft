@@ -40,7 +40,7 @@ public class DeathEventListener extends EntityListener {
 	}
 	
 	private void doFinalFarewellMessage(Player player) {
-		player.sendMessage(ChatColor.RED + "You have died. You have been granted " + _plugin.getHardcoreConfiguration().finalFarewellSeconds + " seconds to say your final farewell.");
+		player.sendMessage(ChatColor.RED + "Umarles. Za " + _plugin.getHardcoreConfiguration().finalFarewellSeconds + " sekund dostaniesz bana na 10 dni. Mozesz sie odbanowac na www.wiwn.xaa.pl");
 		
 	}
 	
